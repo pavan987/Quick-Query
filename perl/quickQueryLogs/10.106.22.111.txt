@@ -1,0 +1,661 @@
+CMD1BEGIN
+show fabric-interconnect | no-more
+
+Fabric Interconnect:
+    ID   OOB IP Addr     OOB Gateway     OOB Netmask     OOB IPv6 Address OOB IPv6 Gateway Prefix Operability
+    ---- --------------- --------------- --------------- ---------------- ---------------- ------ -----------
+    A    10.106.22.113   10.106.22.1     255.255.255.0   ::               ::               64     Operable
+    B    10.106.22.112   10.106.22.1     255.255.255.0   ::               ::               64     Operable
+
+CMD1END
+CMD2BEGIN
+show cluster extended-state | no-more
+Cluster Id: 0x26fa6db2947211e3-0x9820002a6a6fc6a1
+
+Start time: Sun Aug 31 23:23:36 2014
+Last election time: Tue Sep  2 07:14:51 2014
+
+A: UP, PRIMARY
+B: UP, SUBORDINATE
+
+A: memb state UP, lead state PRIMARY, mgmt services state: UP
+B: memb state UP, lead state SUBORDINATE, mgmt services state: UP
+   heartbeat state PRIMARY_OK
+
+INTERNAL NETWORK INTERFACES:
+eth1, UP
+eth2, UP
+
+HA READY
+Detailed state of the device selected for HA storage:
+Chassis 3, serial: FOX1352GDXG, state: active
+Chassis 4, serial: FOX1405GY41, state: active
+
+CMD2END
+CMD3BEGIN
+show chassis | no-more
+
+Chassis:
+    Chassis    Overall Status           Admin State
+    ---------- ------------------------ -----------
+             3 Inoperable               Acknowledged
+             4 Inoperable               Acknowledged
+
+CMD3END
+CMD4BEGIN
+show fex | no-more
+
+FEX:
+    ID         Fabric ID Overall Status
+    ---------- --------- --------------
+             1 A         Accessibility Problem
+             2 B         Power Problem
+
+CMD4END
+CMD5BEGIN
+show server status | no-more
+Server  Slot Status                       Availability Overall Status        Discovery
+------- --------------------------------- ------------ --------------------- ---------
+3/1     Equipped                          Unavailable  Degraded              Complete
+3/2     Equipped Not Primary
+3/3     Empty
+3/4     Equipped                          Unavailable  Ok                    Complete
+3/5     Equipped                          Unavailable  Disc Failed           Insufficiently Equipped
+3/6     Equipped Not Primary
+3/7     Missing                           Unavailable  Removed               Complete
+3/8     Missing
+4/1     Empty
+4/2     Empty
+4/3     Empty
+4/4     Empty
+4/5     Equipped                          Unavailable  Discovery             Retry
+4/6     Empty
+4/7     Equipped                          Unavailable  Degraded              Retry
+4/8     Equipped Not Primary
+
+CMD5END
+CMD6BEGIN
+show server adapter | no-more
+Server 3/1:
+    Adapter PID        Vendor            Serial       Overall Status
+    ------- ---------- ----------------- ------------ --------------
+          1 N20-AC0002 Cisco Systems Inc QCI1412A3NF  Operable
+
+Server 3/4:
+    Adapter PID        Vendor            Serial       Overall Status
+    ------- ---------- ----------------- ------------ --------------
+          1 N20-AQ0002 Cisco Systems Inc QCI1415A18P  Operable
+
+Server 3/5:
+
+Server 3/7:
+    Adapter PID        Vendor            Serial       Overall Status
+    ------- ---------- ----------------- ------------ --------------
+          1 N20-AC0002 Cisco Systems Inc QCI1414A23Z  Operable
+
+Server 4/5:
+    Adapter PID        Vendor            Serial       Overall Status
+    ------- ---------- ----------------- ------------ --------------
+          1 N20-AQ0102 Cisco Systems Inc QLM143220B9  Operable
+
+Server 4/7:
+    Adapter PID        Vendor            Serial       Overall Status
+    ------- ---------- ----------------- ------------ --------------
+          1 N20-AE0102 Cisco Systems Inc EXB1416000Y  Operable
+
+CMD6END
+CMD7BEGIN
+show service-profile status | no-more
+Service Profile Name Server  Assignment Association    Power State    Op State
+-------------------- ------- ---------- -------------- -------------- --------
+AB                           Unassigned Unassociated                  Unassociated
+BC                           Unassigned Unassociated                  Unassociated
+hardware-sp          3/4     Assigned   Associated     On             Ok
+SP                           Unassigned Unassociated                  Unassociated
+Sp                   3/7     Assigned   Associated     On             Removed
+Sp-expert            3/1     Assigned   Associated     On             Degraded
+Sp-test                      Unassigned Unassociated                  Unassociated
+
+CMD7END
+CMD8BEGIN
+show chassis decommissioned | no-more
+
+
+
+CMD8END
+CMD9BEGIN
+show system version | no-more
+UCSM:
+    Running-Vers: 2.2(1c)
+    Package-Vers: 2.2(1c)A
+    Activate-Status: Ready
+
+
+
+Fabric Interconnect A:
+    Running-Kern-Vers: 5.2(3)N2(2.21c)
+    Running-Sys-Vers: 5.2(3)N2(2.21c)
+    Package-Vers: 2.2(1c)A
+    Startup-Kern-Vers: 5.2(3)N2(2.21c)
+    Startup-Sys-Vers: 5.2(3)N2(2.21c)
+    Act-Kern-Status: Ready
+    Act-Sys-Status: Ready
+    Bootloader-Vers:   v3.6.0(05/09/2012)
+
+Fabric Interconnect B:
+    Running-Kern-Vers: 5.2(3)N2(2.21c)
+    Running-Sys-Vers: 5.2(3)N2(2.21c)
+    Package-Vers: 2.2(1c)A
+    Startup-Kern-Vers: 5.2(3)N2(2.21c)
+    Startup-Sys-Vers: 5.2(3)N2(2.21c)
+    Act-Kern-Status: Ready
+    Act-Sys-Status: Ready
+    Bootloader-Vers:   v3.6.0(05/09/2012)
+
+
+CMD9END
+CMD10BEGIN
+show server version | no-more
+Server 3/1:
+    CIMC:
+        Running-Vers: 2.2(2.148)
+        Package-Vers: 2.2(2.148)B
+        Update-Status: Ready
+        Activate-Status: Ready
+
+    Adapter 1:
+        Running-Vers: 2.2(2.148)
+        Package-Vers: 2.2(2.148)B
+        Update-Status: Ready
+        Activate-Status: Ready
+    BIOS:
+        Running-Vers: S5500.2.1.3.0.081520131435
+        Package-Vers: 2.2(2.148)B
+        Update-Status:
+        Activate-Status: Ready
+
+    RAID Controller 1:
+        Running-Vers: 01.32.09.00
+        Package-Vers: 2.2(2.148)B
+        Activate-Status: Ready
+
+    BoardController:
+        Running-Vers: 111026-111026
+        Package-Vers:
+        Activate-Status: Ready
+
+    Local Disk 1:
+        Running-Vers:
+        Package-Vers:
+        Activate-Status:
+
+    Local Disk 2:
+        Running-Vers:
+        Package-Vers:
+        Activate-Status:
+
+Server 3/4:
+    CIMC:
+        Running-Vers: 2.2(2.148)
+        Package-Vers: 2.2(2.148)B
+        Update-Status: Ready
+        Activate-Status: Ready
+
+    Adapter 1:
+        Running-Vers: 2.2(2.148)
+        Package-Vers: 2.2(2.148)B
+        Update-Status: Ready
+        Activate-Status: Ready
+        Host FC IF 1:
+            Running-Vers: 4.04.05 (482)
+            Package-Vers:
+            Activate-Status:
+
+        Host FC IF 2:
+            Running-Vers: 4.04.05 (482)
+            Package-Vers:
+            Activate-Status:
+    BIOS:
+        Running-Vers: S5500.2.1.3.0.081620131102
+        Package-Vers: 2.2(2.148)B
+        Update-Status:
+        Activate-Status: Ready
+
+    RAID Controller 1:
+        Running-Vers: 01.32.09.00
+        Package-Vers: 2.2(2.148)B
+        Activate-Status: Ready
+
+    Local Disk 1:
+        Running-Vers: 0008
+        Package-Vers:
+        Activate-Status: Ready
+
+    Local Disk 2:
+        Running-Vers:
+        Package-Vers:
+        Activate-Status:
+
+Server 3/5:
+    CIMC:
+        Running-Vers: 2.0(4d)
+        Package-Vers:
+        Update-Status: Ready
+        Activate-Status: Ready
+
+    BIOS:
+        Running-Vers: S5500.2.0.3.0.050820121619
+        Package-Vers:
+        Update-Status:
+        Activate-Status: Ready
+
+    RAID Controller 1:
+        Running-Vers:
+        Package-Vers:
+        Activate-Status:
+
+    BoardController:
+        Running-Vers: 111026-111026
+        Package-Vers:
+        Activate-Status: Ready
+
+    Local Disk 1:
+        Running-Vers:
+        Package-Vers:
+        Activate-Status:
+
+    Local Disk 2:
+        Running-Vers:
+        Package-Vers:
+        Activate-Status:
+
+Server 3/7:
+    CIMC:
+        Running-Vers: 2.2(2.148)
+        Package-Vers: 2.2(2.148)B
+        Update-Status: Ready
+        Activate-Status: Ready
+
+    Adapter 1:
+        Running-Vers: 2.2(2.148)
+        Package-Vers: 2.2(2.148)B
+        Update-Status: Ready
+        Activate-Status: Ready
+    BIOS:
+        Running-Vers: S5500.2.1.3.0.081520131435
+        Package-Vers: 2.2(2.148)B
+        Update-Status:
+        Activate-Status: Ready
+
+    RAID Controller 1:
+        Running-Vers: 01.32.09.00
+        Package-Vers: 2.2(2.148)B
+        Activate-Status: Ready
+
+    BoardController:
+        Running-Vers: 111026-111026
+        Package-Vers:
+        Activate-Status: Ready
+
+    Local Disk 1:
+        Running-Vers: 0005
+        Package-Vers:
+        Activate-Status: Ready
+
+    Local Disk 2:
+        Running-Vers:
+        Package-Vers:
+        Activate-Status:
+
+Server 4/5:
+    CIMC:
+        Running-Vers: 2.1(1.89)
+        Package-Vers:
+        Update-Status: Ready
+        Activate-Status: Ready
+
+    Adapter 1:
+        Running-Vers:
+        Package-Vers:
+        Update-Status:
+        Activate-Status:
+        Host FC IF 1:
+            Running-Vers:
+            Package-Vers:
+            Activate-Status:
+
+        Host FC IF 2:
+            Running-Vers:
+            Package-Vers:
+            Activate-Status:
+    BIOS:
+        Running-Vers:
+        Package-Vers:
+        Update-Status:
+        Activate-Status: Ready
+
+    RAID Controller 1:
+        Running-Vers:
+        Package-Vers:
+        Activate-Status:
+
+    Local Disk 1:
+        Running-Vers:
+        Package-Vers:
+        Activate-Status:
+
+    Local Disk 2:
+        Running-Vers:
+        Package-Vers:
+        Activate-Status:
+
+Server 4/7:
+    CIMC:
+        Running-Vers: 2.1(1a)
+        Package-Vers:
+        Update-Status: Ready
+        Activate-Status: Ready
+
+    Adapter 1:
+        Running-Vers:
+        Package-Vers:
+        Update-Status:
+        Activate-Status:
+        Host FC IF 1:
+            Running-Vers:
+            Package-Vers:
+            Activate-Status:
+
+        Host FC IF 2:
+            Running-Vers:
+            Package-Vers:
+            Activate-Status:
+    BIOS:
+        Running-Vers: S5500.2.0.2c.0.020920121737
+        Package-Vers:
+        Update-Status:
+        Activate-Status: Ready
+
+    RAID Controller 1:
+        Running-Vers: 01.28.03.00
+        Package-Vers:
+        Activate-Status: Ready
+
+    BoardController:
+        Running-Vers: 090324-090324
+        Package-Vers:
+        Activate-Status: Ready
+
+    Local Disk 1:
+        Running-Vers:
+        Package-Vers:
+        Activate-Status:
+
+    Local Disk 2:
+        Running-Vers: 0004
+        Package-Vers:
+        Activate-Status: Ready
+
+
+CMD10END
+CMD11BEGIN
+show server inventory | no-more
+Server  Equipped PID Equipped VID Equipped Serial (SN) Slot Status      Ackd Memory (MB) Ackd Cores
+------- ------------ ------------ -------------------- ---------------- ---------------- ----------
+3/1     N20-B6620-2  V01          QCI1410A055          Equipped                    32768          8
+3/2                                                    Equipped Not Pri
+3/3                                                    Empty
+3/4     N20-B6620-1  V01          QCI1415A4US          Equipped                     4096          4
+3/5     N20-B6625-2  V01          QCI1433A7J7          Equipped                    16384          6
+3/6                                                    Equipped Not Pri
+3/7                                                    Missing                     32768          8
+3/8                                                    Missing
+4/1                                                    Empty
+4/2                                                    Empty
+4/3                                                    Empty
+4/4                                                    Empty
+4/5     N20-B6620-1  V01          QCI1413A5MS          Equipped                        0          0
+4/6                                                    Empty
+4/7     N20-B6620-2  V01          QCI1410A07Z          Equipped                    65536          8
+4/8                                                    Equipped Not Pri
+
+CMD11END
+CMD12BEGIN
+scope eth-server ; show interface | no-more
+
+Interface:
+
+Fabric  Slot  Port  Admin State  Oper State   State Reason                    Chassis  Lic State            Grace Prd
+------- ----- ----- ------------ ------------ ------------------------------- -------- -------------------- ---------
+A           1     1 Enabled      Up                                           3        License Ok                         0
+A           1     2 Enabled      Up                                           3        License Ok                         0
+A           1     3 Enabled      Up                                           3        License Ok                         0
+A           1     4 Enabled      Up                                           3        License Ok                         0
+A           1     5 Enabled      Up                                           4        License Ok                         0
+A           1     6 Enabled      Up                                           4        License Ok                         0
+A           1     7 Enabled      Up                                           4        License Ok                         0
+A           1     8 Enabled      Up                                           4        License Ok                         0
+B           1     1 Enabled      Up                                           3        License Ok                         0
+B           1    13 Enabled      Up                                           2        License Ok                         0
+B           1    14 Enabled      Up                                           2        License Ok                         0
+B           1    15 Enabled      Up                                           2        License Ok                         0
+B           1    16 Enabled      Up                                           2        License Ok                         0
+B           1     3 Enabled      Up                                           3        License Ok                         0
+B           1     5 Enabled      Up                                           4        License Ok                         0
+B           1     6 Enabled      Up                                           4        License Ok                         0
+
+CMD12END
+CMD13BEGIN
+scope eth-uplink ; show interface | no-more
+
+Interface:
+
+Fabric ID  Slot  Port  Admin State  Oper State    State Reason                        Lic State            Grace Period
+---------- ----- ----- ------------ ------------- ----------------------------------- -------------------- ------------
+B          1     31    Enabled      Up                                                License Ok                         0
+B          1     32    Enabled      Up                                                License Ok                         0
+
+CMD13END
+CMD14BEGIN
+scope org ; show mac-pool expand detail | no-more
+
+MAC Pool:
+    Name: default
+    Size: 15
+    Assigned: 8
+    Descr:
+    Assignment Order: Default
+
+    Block of MAC Addresses:
+        From: 00:25:B5:00:24:24
+        To: 00:25:B5:00:24:32
+
+    Pooled:
+        Id: 00:25:B5:00:24:24
+        Assigned: No
+        Assigned To Dn:
+        Poolable Dn: mac/00:25:B5:00:24:24/pool-122091
+        Prev Assigned To Dn:
+
+        Id: 00:25:B5:00:24:25
+        Assigned: No
+        Assigned To Dn:
+        Poolable Dn: mac/00:25:B5:00:24:25/pool-122094
+        Prev Assigned To Dn:
+
+        Id: 00:25:B5:00:24:26
+        Assigned: No
+        Assigned To Dn:
+        Poolable Dn: mac/00:25:B5:00:24:26/pool-122097
+        Prev Assigned To Dn:
+
+        Id: 00:25:B5:00:24:27
+        Assigned: No
+        Assigned To Dn:
+        Poolable Dn: mac/00:25:B5:00:24:27/pool-122100
+        Prev Assigned To Dn:
+
+        Id: 00:25:B5:00:24:28
+        Assigned: Yes
+        Assigned To Dn: org-root/ls-Sp-test/ether-eth0
+        Poolable Dn: mac/00:25:B5:00:24:28/pool-122103
+        Prev Assigned To Dn: org-root/ls-Sp-test/ether-eth0
+
+        Id: 00:25:B5:00:24:29
+        Assigned: Yes
+        Assigned To Dn: org-root/ls-Sp-test/ether-eth1
+        Poolable Dn: mac/00:25:B5:00:24:29/pool-122106
+        Prev Assigned To Dn: org-root/ls-Sp-test/ether-eth1
+
+        Id: 00:25:B5:00:24:2A
+        Assigned: Yes
+        Assigned To Dn: org-root/ls-Sp-expert/ether-1-fabric-A
+        Poolable Dn: mac/00:25:B5:00:24:2A/pool-122109
+        Prev Assigned To Dn: org-root/ls-Sp-expert/ether-1-fabric-A
+
+        Id: 00:25:B5:00:24:2B
+        Assigned: Yes
+        Assigned To Dn: org-root/ls-Sp-expert/ether-1-fabric-B
+        Poolable Dn: mac/00:25:B5:00:24:2B/pool-122112
+        Prev Assigned To Dn: org-root/ls-Sp-expert/ether-1-fabric-B
+
+        Id: 00:25:B5:00:24:2C
+        Assigned: Yes
+        Assigned To Dn: org-root/ls-SP/ether-eth0
+        Poolable Dn: mac/00:25:B5:00:24:2C/pool-122115
+        Prev Assigned To Dn: org-root/ls-SP/ether-eth0
+
+        Id: 00:25:B5:00:24:2D
+        Assigned: Yes
+        Assigned To Dn: org-root/ls-SP/ether-eth1
+        Poolable Dn: mac/00:25:B5:00:24:2D/pool-122118
+        Prev Assigned To Dn: org-root/ls-SP/ether-eth1
+
+        Id: 00:25:B5:00:24:2E
+        Assigned: Yes
+        Assigned To Dn: org-root/ls-Sp/ether-1-fabric-A
+        Poolable Dn: mac/00:25:B5:00:24:2E/pool-122121
+        Prev Assigned To Dn: org-root/ls-Sp/ether-eth0
+
+        Id: 00:25:B5:00:24:2F
+        Assigned: Yes
+        Assigned To Dn: org-root/ls-Sp/ether-1-fabric-B
+        Poolable Dn: mac/00:25:B5:00:24:2F/pool-122124
+        Prev Assigned To Dn: org-root/ls-Sp/ether-eth1
+
+        Id: 00:25:B5:00:24:30
+        Assigned: No
+        Assigned To Dn:
+        Poolable Dn: mac/00:25:B5:00:24:30/pool-122127
+        Prev Assigned To Dn:
+
+        Id: 00:25:B5:00:24:31
+        Assigned: No
+        Assigned To Dn:
+        Poolable Dn: mac/00:25:B5:00:24:31/pool-122130
+        Prev Assigned To Dn:
+
+        Id: 00:25:B5:00:24:32
+        Assigned: No
+        Assigned To Dn:
+        Poolable Dn: mac/00:25:B5:00:24:32/pool-122133
+        Prev Assigned To Dn:
+
+CMD14END
+CMD15BEGIN
+scope org ; show wwn-pool expand detail | no-more
+
+WWN Pool:
+    Name: default
+    Purpose: Port WWN Assignment
+    Size: 0
+    Assigned: 0
+    Max ports per node: 3 Ports Per Node
+    Description:
+    Assignment Order: Default
+
+    Name: node-default
+    Purpose: Node WWN Assignment
+    Size: 0
+    Assigned: 0
+    Max ports per node: 3 Ports Per Node
+    Description:
+    Assignment Order: Default
+
+CMD15END
+CMD16BEGIN
+scope org ; show ip-pool expand detail | no-more
+
+IP Pool:
+    Name: ext-mgmt
+    Size: 0
+    Assigned: 0
+    Descr:
+    Assignment Order: Default
+    Management mode: Internal
+    Guid: 00000000-0000-0000-0000-000000000000
+    Net bios enabled or disabled: Not Active
+    DHCP enaled or disabled: Not Supported
+
+    Name: iscsi-initiator-pool
+    Size: 0
+    Assigned: 0
+    Descr:
+    Assignment Order: Default
+    Management mode: Internal
+    Guid: 00000000-0000-0000-0000-000000000000
+    Net bios enabled or disabled: Not Active
+    DHCP enaled or disabled: Not Supported
+
+    Name: test/test-org
+    Size: 0
+    Assigned: 0
+    Descr:
+    Assignment Order: Default
+    Management mode: Internal
+    Guid: 00000000-0000-0000-0000-000000000000
+    Net bios enabled or disabled: Not Active
+    DHCP enaled or disabled: Not Supported
+
+CMD16END
+CMD17BEGIN
+scope org ; show iqn-pool expand detail | no-more
+
+IQN Pool:
+    Name: default
+    IQN Prefix:
+    Size: 0
+    Assigned: 0
+    Description:
+    Assignment Order: Default
+
+CMD17END
+CMD18BEGIN
+scope monitoring ; scope sysdebug ; show cores detail | no-more
+
+Core Files:
+    Name: 1407892607_SAM_sam-qa-7-A_svc_sam_dme_log.18155.tar.gz
+    Fabric ID: A
+    Description: SAM/Fabric Interconnect Core Dump
+    Size: 44088638
+    Timestamp: 2014-08-13T01:17:07.000
+    URI: corefile/1407892607_SAM_sam-qa-7-A_svc_sam_dme_log.18155.tar.gz
+    Current Task:
+
+    Name: 1407892556_SAM_sam-qa-7-A_svc_sam_dme_log.17629.tar.gz
+    Fabric ID: A
+    Description: SAM/Fabric Interconnect Core Dump
+    Size: 44570892
+    Timestamp: 2014-08-13T01:16:17.000
+    URI: corefile/1407892556_SAM_sam-qa-7-A_svc_sam_dme_log.17629.tar.gz
+    Current Task:
+
+    Name: 1407892501_SAM_sam-qa-7-A_svc_sam_dme_log.16698.tar.gz
+    Fabric ID: A
+    Description: SAM/Fabric Interconnect Core Dump
+    Size: 42829957
+    Timestamp: 2014-08-13T01:15:24.000
+    URI: corefile/1407892501_SAM_sam-qa-7-A_svc_sam_dme_log.16698.tar.gz
+    Current Task:
+
+CMD18END
